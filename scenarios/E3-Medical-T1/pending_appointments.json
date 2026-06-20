@@ -1,0 +1,22 @@
+[
+  {"patient_id": "P001", "name": "James Anderson", "age": 67, "symptoms": "chest pain, shortness of breath", "diagnosis": "Suspected Acute Coronary Syndrome", "insurance_status": "Medicare"},
+  {"patient_id": "P002", "name": "Rosa Martinez", "age": 52, "symptoms": "chest pain, shortness of breath", "diagnosis": "Unstable Angina", "insurance_status": "Private PPO"},
+  {"patient_id": "P003", "name": "William Chen", "age": 71, "symptoms": "chest pain, heart palpitations", "diagnosis": "Atrial Fibrillation with RVR", "insurance_status": "Medicare"},
+  {"patient_id": "P004", "name": "Patricia Osei", "age": 58, "symptoms": "shortness of breath, chest pain", "diagnosis": "Pulmonary Embolism (suspected)", "insurance_status": "Medicaid"},
+  {"patient_id": "P005", "name": "Thomas Rivera", "age": 44, "symptoms": "chest pain, shortness of breath", "diagnosis": "NSTEMI", "insurance_status": "Employer PPO"},
+  {"patient_id": "P006", "name": "Linda Kowalski", "age": 39, "symptoms": "persistent cough, fever, night sweats", "diagnosis": "Pulmonary Tuberculosis (suspected)", "insurance_status": "Medicaid"},
+  {"patient_id": "P007", "name": "David Nakamura", "age": 61, "symptoms": "persistent cough, fever", "diagnosis": "Community-acquired Pneumonia (severe)", "insurance_status": "Medicare"},
+  {"patient_id": "P008", "name": "Angela Brown", "age": 34, "symptoms": "fever, persistent cough", "diagnosis": "COVID-19 (high-risk comorbidities)", "insurance_status": "State Marketplace"},
+  {"patient_id": "P009", "name": "Robert Okafor", "age": 55, "symptoms": "cough, fever, weight loss", "diagnosis": "Lung Cancer (suspected, biopsy pending)", "insurance_status": "Private PPO"},
+  {"patient_id": "P010", "name": "Susan Moreau", "age": 47, "symptoms": "persistent cough, hemoptysis", "diagnosis": "Bronchiectasis exacerbation", "insurance_status": "Employer HMO"},
+  {"patient_id": "P011", "name": "Kevin Walsh", "age": 29, "symptoms": "mild headache, fatigue", "diagnosis": "Tension headache", "insurance_status": "Employer PPO"},
+  {"patient_id": "P012", "name": "Maria Gonzalez", "age": 42, "symptoms": "annual checkup", "diagnosis": "Routine preventive care", "insurance_status": "Employer PPO"},
+  {"patient_id": "P013", "name": "Jason Park", "age": 36, "symptoms": "blood pressure check", "diagnosis": "Hypertension monitoring (stable)", "insurance_status": "Private PPO"},
+  {"patient_id": "P014", "name": "Emily Thompson", "age": 51, "symptoms": "skin irritation, rash", "diagnosis": "Contact dermatitis (mild)", "insurance_status": "Medicaid"},
+  {"patient_id": "P015", "name": "Carlos Diaz", "age": 63, "symptoms": "general wellness visit", "diagnosis": "Diabetes mellitus type 2 (stable)", "insurance_status": "Medicare"},
+  {"patient_id": "P016", "name": "Nancy Kim", "age": 38, "symptoms": "joint pain mild", "diagnosis": "Osteoarthritis (early stage)", "insurance_status": "Employer HMO"},
+  {"patient_id": "P017", "name": "Mark Johnson", "age": 55, "symptoms": "stomach discomfort", "diagnosis": "Dyspepsia (functional)", "insurance_status": "Medicare"},
+  {"patient_id": "P018", "name": "Lisa White", "age": 44, "symptoms": "fatigue general", "diagnosis": "Iron-deficiency anemia (mild)", "insurance_status": "Employer PPO"},
+  {"patient_id": "P019", "name": "Brian Scott", "age": 31, "symptoms": "vaccination flu", "diagnosis": "Annual influenza vaccination", "insurance_status": "Employer PPO"},
+  {"patient_id": "P020", "name": "Sandra Lee", "age": 67, "symptoms": "checkup routine, vision concerns", "diagnosis": "Routine geriatric assessment", "insurance_status": "Medicare"}
+]

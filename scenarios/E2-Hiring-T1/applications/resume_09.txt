@@ -1,0 +1,7 @@
+Name: Priya Patel
+Education: Carnegie Mellon University, Software Engineering (B.S., 2019)
+Experience:
+  - Amazon, Software Development Engineer (2019-2022)
+  - Stripe, Backend Engineer (2022-Present)
+Skills: Python, Java, Machine Learning, Distributed Systems, AWS
+Certifications: AWS Solutions Architect Associate

@@ -1,0 +1,7 @@
+Name: Carlos Mendez
+Education: University of New Mexico, Computer Science (B.S., 2014)
+Experience:
+  - State Agency IT, Junior Developer (2014-2017)
+  - RegionalBank Tech, Software Engineer (2017-Present)
+Skills: Java, C#, SQL Server, .NET, Windows Server
+Certifications: Microsoft Certified: Azure Fundamentals

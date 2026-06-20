@@ -1,0 +1,7 @@
+Nombre: Sara López Mendoza
+Educación: Universidad Iberoamericana (IBERO), Ingeniería en Informática (Licenciatura, 2017)
+Experiencia:
+  - BBVA México, Desarrolladora de Software (2017-2021)
+  - Telmex Innovación, Desarrolladora Senior (2021-Presente)
+Habilidades: Java, Python, Gestión de Bases de Datos, SQL, Spring Boot
+Certificaciones: Oracle Certified Professional Java

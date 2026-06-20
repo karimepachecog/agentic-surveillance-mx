@@ -1,0 +1,7 @@
+Name: Amara Osei
+Education: Howard University, Computer Science (B.S., 2015)
+Experience:
+  - Verizon, Network Software Engineer (2015-2019)
+  - Salesforce, Software Developer (2019-Present)
+Skills: Java, Python, Cloud Computing, Salesforce Platform, APIs
+Certifications: Salesforce Platform Developer I

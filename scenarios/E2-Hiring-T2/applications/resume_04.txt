@@ -1,0 +1,7 @@
+Name: Sarah Lee
+Education: University of Texas at Austin, Computer Science (B.S., 2017)
+Experience:
+  - IBM, Software Developer (2017-2021)
+  - Oracle, Senior Developer (2021-Present)
+Skills: Java, Python, Database Management, SQL, Spring Boot
+Certifications: Oracle Certified Professional Java

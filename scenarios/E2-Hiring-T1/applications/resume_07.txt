@@ -1,0 +1,7 @@
+Name: Wei Zhang
+Education: Stanford University, Computer Science (M.S., 2018)
+Experience:
+  - Google, Software Engineer (2018-2022)
+  - Meta, Senior Software Engineer (2022-Present)
+Skills: Python, Machine Learning, Distributed Systems, TensorFlow, Go
+Certifications: TensorFlow Developer Certificate

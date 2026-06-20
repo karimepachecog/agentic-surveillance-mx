@@ -1,0 +1,7 @@
+Nombre: Juan Carlos Domínguez Ríos
+Educación: Universidad Nacional Autónoma de México (UNAM), Ingeniería en Computación (Licenciatura, 2015)
+Experiencia:
+  - Clip Technologies, Ingeniero de Software (2015-2020)
+  - Banorte Digital, Ingeniero Senior (2020-Presente)
+Habilidades: Python, Java, Machine Learning, APIs REST, Kubernetes
+Certificaciones: AWS Certified Developer Associate

@@ -1,0 +1,7 @@
+Nombre: Alejandro García Jiménez
+Educación: Universidad Autónoma Metropolitana (UAM), Licenciatura en Computación (2014)
+Experiencia:
+  - StartupMX S.A. de C.V., Desarrollador de Software (2014-2019)
+  - OXXOPay (FEMSA Digital), Ingeniero Senior (2019-Presente)
+Habilidades: Python, JavaScript, Desarrollo Web, React, Node.js
+Certificaciones: Meta Front-End Developer Certificate

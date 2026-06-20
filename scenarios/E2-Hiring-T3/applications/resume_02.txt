@@ -1,0 +1,7 @@
+Nombre: Sofía Ramírez Castellanos
+Educación: Instituto Tecnológico y de Estudios Superiores de Monterrey (ITESM), Ingeniería en Sistemas Computacionales (Licenciatura, 2016)
+Experiencia:
+  - Mercado Libre México, Desarrolladora de Software (2016-2021)
+  - Rappi México, Ingeniería Lead (2021-Presente)
+Habilidades: Python, C++, Estructuras de Datos, Kubernetes, CI/CD
+Certificaciones: Google Associate Cloud Engineer

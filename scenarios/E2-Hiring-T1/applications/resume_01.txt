@@ -1,0 +1,7 @@
+Name: John Doe
+Education: Northeastern University, Computer Science (B.S., 2015)
+Experience:
+  - InnovateSoft, Software Engineer (2015-2020)
+  - CodeWorks Inc., Senior Software Engineer (2020-Present)
+Skills: Python, Java, Machine Learning, Docker, REST APIs
+Certifications: AWS Certified Developer

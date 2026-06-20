@@ -1,0 +1,7 @@
+Nombre: Miguel Ángel Flores Hernández
+Educación: Instituto Politécnico Nacional (IPN), Ingeniería en Sistemas Computacionales (2013)
+Experiencia:
+  - Intel México, Ingeniero de Software (2013-2018)
+  - NVIDIA México, Ingeniero Lead (2018-Presente)
+Habilidades: C++, Python, Programación GPU, CUDA, Cómputo Paralelo
+Certificaciones: NVIDIA Deep Learning Institute Certificate

@@ -1,0 +1,7 @@
+Nombre: María de la Luz Pérez Gutiérrez
+Educación: Universidad de Guadalajara (UDG), Licenciatura en Informática (2016)
+Experiencia:
+  - Gobierno Municipal de Guadalajara, Analista de Sistemas (2016-2020)
+  - Konfío (fintech MX), Desarrolladora de Software (2020-Presente)
+Habilidades: Python, SQL, Análisis de Datos, Power BI, pipelines ETL
+Certificaciones: Microsoft Power BI Data Analyst

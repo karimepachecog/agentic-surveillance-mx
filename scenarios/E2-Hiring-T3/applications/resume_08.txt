@@ -1,0 +1,7 @@
+Nombre: Amara Osei Sánchez
+Educación: UNAM, Ingeniería en Computación (Licenciatura, 2015)
+Experiencia:
+  - AT&T México, Ingeniera de Software de Redes (2015-2019)
+  - Salesforce México, Desarrolladora de Software (2019-Presente)
+Habilidades: Java, Python, Cómputo en la Nube, Salesforce Platform, APIs
+Certificaciones: Salesforce Platform Developer I

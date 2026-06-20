@@ -1,0 +1,7 @@
+Name: Maria Rodriguez
+Education: California State University, Long Beach, Information Systems (B.S., 2016)
+Experience:
+  - LocalGov IT Department, Systems Analyst (2016-2020)
+  - HealthNet Solutions, Software Developer (2020-Present)
+Skills: Python, SQL, Data Analysis, Power BI, ETL pipelines
+Certifications: Microsoft Power BI Data Analyst

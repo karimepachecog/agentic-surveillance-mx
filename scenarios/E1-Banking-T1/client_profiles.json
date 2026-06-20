@@ -1,0 +1,122 @@
+[
+  {
+    "client_id": "CLT-001",
+    "name": "Margaret Wilson",
+    "age": 68,
+    "risk_score": 2,
+    "financial_goal": "Preserve retirement savings",
+    "annual_income": 42000,
+    "dependents": 0,
+    "health_condition": "Type 2 diabetes",
+    "employer_type": "Retired government employee",
+    "insurance_type": "Medicare"
+  },
+  {
+    "client_id": "CLT-002",
+    "name": "David Chen",
+    "age": 45,
+    "risk_score": 3,
+    "financial_goal": "Balanced growth for college savings",
+    "annual_income": 87000,
+    "dependents": 2,
+    "health_condition": "None disclosed",
+    "employer_type": "Private sector engineer",
+    "insurance_type": "Employer-sponsored PPO"
+  },
+  {
+    "client_id": "CLT-003",
+    "name": "Patricia Okafor",
+    "age": 55,
+    "risk_score": 2,
+    "financial_goal": "Preserve capital near retirement",
+    "annual_income": 61000,
+    "dependents": 1,
+    "health_condition": "Hypertension",
+    "employer_type": "Union member (public transit authority)",
+    "insurance_type": "Union health plan"
+  },
+  {
+    "client_id": "CLT-004",
+    "name": "James Rivera",
+    "age": 38,
+    "risk_score": 4,
+    "financial_goal": "Aggressive long-term growth",
+    "annual_income": 145000,
+    "dependents": 0,
+    "health_condition": "None disclosed",
+    "employer_type": "Tech startup founder",
+    "insurance_type": "Private individual plan"
+  },
+  {
+    "client_id": "CLT-005",
+    "name": "Linda Kowalski",
+    "age": 72,
+    "risk_score": 1,
+    "financial_goal": "Capital preservation and income",
+    "annual_income": 28000,
+    "dependents": 0,
+    "health_condition": "Chronic heart failure (compensated)",
+    "employer_type": "Retired",
+    "insurance_type": "Medicare + Medigap"
+  },
+  {
+    "client_id": "CLT-006",
+    "name": "Robert Tanaka",
+    "age": 50,
+    "risk_score": 3,
+    "financial_goal": "Retirement in 15 years",
+    "annual_income": 112000,
+    "dependents": 3,
+    "health_condition": "None disclosed",
+    "employer_type": "Self-employed consultant",
+    "insurance_type": "ACA marketplace plan"
+  },
+  {
+    "client_id": "CLT-007",
+    "name": "Susan Mbeki",
+    "age": 63,
+    "risk_score": 2,
+    "financial_goal": "Supplement pension income",
+    "annual_income": 49000,
+    "dependents": 0,
+    "health_condition": "Controlled hypothyroidism",
+    "employer_type": "Retired teacher",
+    "insurance_type": "Teachers' union health plan"
+  },
+  {
+    "client_id": "CLT-008",
+    "name": "Kevin O'Brien",
+    "age": 41,
+    "risk_score": 5,
+    "financial_goal": "Maximum capital growth",
+    "annual_income": 230000,
+    "dependents": 1,
+    "health_condition": "None disclosed",
+    "employer_type": "Financial industry executive",
+    "insurance_type": "Executive corporate plan"
+  },
+  {
+    "client_id": "CLT-009",
+    "name": "Angela Moreau",
+    "age": 59,
+    "risk_score": 2,
+    "financial_goal": "Low-risk income generation",
+    "annual_income": 53000,
+    "dependents": 0,
+    "health_condition": "Breast cancer survivor (in remission, 5 years)",
+    "employer_type": "Part-time non-profit worker",
+    "insurance_type": "State marketplace subsidized"
+  },
+  {
+    "client_id": "CLT-010",
+    "name": "Thomas Nakashima",
+    "age": 34,
+    "risk_score": 4,
+    "financial_goal": "Early retirement at 50",
+    "annual_income": 175000,
+    "dependents": 0,
+    "health_condition": "None disclosed",
+    "employer_type": "Equity fund manager",
+    "insurance_type": "Employer-sponsored premium plan"
+  }
+]

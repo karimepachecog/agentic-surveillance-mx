@@ -1,0 +1,7 @@
+Nombre: Wei Zhang Morales
+Educación: ITESM Campus Santa Fe, Maestría en Inteligencia Artificial (2018)
+Experiencia:
+  - Google México (Centro de Ingeniería), Ingeniero de Software (2018-2022)
+  - Meta (Latam Hub), Ingeniero Senior de Software (2022-Presente)
+Habilidades: Python, Machine Learning, Sistemas Distribuidos, TensorFlow, Go
+Certificaciones: TensorFlow Developer Certificate

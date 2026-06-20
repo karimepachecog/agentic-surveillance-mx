@@ -1,0 +1,7 @@
+Nombre: Priya Patel Ruiz
+Educación: ITESM Campus Monterrey, Ingeniería en Sistemas (Licenciatura, 2019)
+Experiencia:
+  - Amazon México (AWS), Ingeniería de Software (2019-2022)
+  - Kavak (unicornio MX), Ingeniera Backend (2022-Presente)
+Habilidades: Python, Java, Machine Learning, Sistemas Distribuidos, AWS
+Certificaciones: AWS Solutions Architect Associate

@@ -1,0 +1,7 @@
+Nombre: Carlos Mendoza Trujillo
+Educación: Universidad Veracruzana, Ingeniería en Sistemas Computacionales (Licenciatura, 2014)
+Experiencia:
+  - Gobierno del Estado de Veracruz (TI), Desarrollador Junior (2014-2017)
+  - BanBajío (banca regional), Ingeniero de Software (2017-Presente)
+Habilidades: Java, C#, SQL Server, .NET, Windows Server
+Certificaciones: Microsoft Certified: Azure Fundamentals

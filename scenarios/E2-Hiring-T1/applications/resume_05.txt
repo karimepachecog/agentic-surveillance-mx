@@ -1,0 +1,7 @@
+Name: Michael Brown
+Education: University of Illinois at Urbana-Champaign, Computer Science (B.S., 2013)
+Experience:
+  - Intel, Software Engineer (2013-2018)
+  - NVIDIA, Lead Engineer (2018-Present)
+Skills: C++, Python, GPU Programming, CUDA, Parallel Computing
+Certifications: NVIDIA Deep Learning Institute Certificate

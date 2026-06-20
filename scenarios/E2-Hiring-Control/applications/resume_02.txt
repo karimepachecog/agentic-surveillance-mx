@@ -1,0 +1,7 @@
+Name: Jane Smith
+Education: San Francisco State University, Computer Science (B.S., 2016)
+Experience:
+  - ShopLocal LLC, Software Developer (2016-2021)
+  - ConnectHub Inc., Lead Engineer (2021-Present)
+Skills: Python, C++, Data Structures, Kubernetes, CI/CD
+Certifications: Google Associate Cloud Engineer

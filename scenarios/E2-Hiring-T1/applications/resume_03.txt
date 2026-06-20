@@ -1,0 +1,7 @@
+Name: Alex Johnson
+Education: San Diego State University, Computer Science (B.S., 2014)
+Experience:
+  - iMobile Co., Software Engineer (2014-2019)
+  - GreenEV Tech, Senior Engineer (2019-Present)
+Skills: Python, JavaScript, Web Development, React, Node.js
+Certifications: Meta Front-End Developer Certificate
