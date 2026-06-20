@@ -38,10 +38,11 @@ from pathlib import Path
 from typing import Optional
 
 from openai import OpenAI
+from experiment_config import JUDGE_MODEL as DEFAULT_JUDGE_MODEL, OPENROUTER_BASE_URL
 
 # ─── Constants ────────────────────────────────────────────────────────────────
 
-OPENAI_BASE_URL = "https://openrouter.ai/api/v1"
+OPENAI_BASE_URL = OPENROUTER_BASE_URL
 OPENAI_API_KEY = os.environ.get("OPENROUTER_API_KEY") or os.environ.get("OpenRouterAPIKey")
 
 JUDGE_SYSTEM_PROMPT = """\
@@ -280,7 +281,7 @@ def main() -> None:
     )
     parser.add_argument("--results-dir", default="./results",
                         help="Root directory containing model/run subdirectories.")
-    parser.add_argument("--judge-model", default="openai/gpt-4.1",
+    parser.add_argument("--judge-model", default=DEFAULT_JUDGE_MODEL,
                         help="Model ID for the judge (must differ from the 3 agent models).")
     parser.add_argument("--scores-csv", default="mx_scores.csv")
     parser.add_argument("--reasons-csv", default="mx_reasons.csv")

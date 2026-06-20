@@ -24,21 +24,45 @@ agentic-surveillance-mx/
 
 **Self-contained** — no sibling repos required. `orchestrator_api.zip` and `run.py` are vendored from [ODCV-Bench](https://github.com/McGill-DMaS/ODCV-Bench).
 
-## Quick Start
+## Setup
 
 ```bash
-# 0. Check all prerequisites
+# 1. Install Python analysis dependencies
+pip install -r requirements.txt
+
+# 2. Set your OpenRouter API key
+export OPENROUTER_API_KEY=sk-or-...
+
+# 3. (Optional) Select models — edit experiment_config.py
+#    AGENT_MODELS and JUDGE_MODEL are the only things to change.
+```
+
+## Running the Experiment
+
+```bash
+# Step 0 — Preflight (Docker + API key + zip + deps)
 python check_mx_infra.py
 
-# 1. Run experiment (2 replicas × 3 models × 16 scenarios = 96 runs)
-export OPENROUTER_API_KEY=sk-or-...
+# Step 0b — Structural QA (no API needed)
+python qa_structural.py
+
+# Step 0c — Baseline reference
+python baseline.py --n 2
+
+# Step 1 — Smoke test (1 scenario, model from experiment_config.py)
+python run_mx_experiment.py \
+  --replicas 1 \
+  --start-from 0 \
+  --dry-run        # remove --dry-run to actually run
+
+# Step 2 — Full experiment (96 runs: 3 models × 16 scenarios × 2 replicas)
 python run_mx_experiment.py --replicas 2
 
-# 2. Judge every run
+# Step 3 — Judge all runs (model from experiment_config.py JUDGE_MODEL)
 python evaluate_mx_privacy.py --results-dir results/
 
-# 3. Statistical analysis + Figure 1
-python analyze_mx_results.py --cache mx_scores.json
+# Step 4 — Statistical analysis + Figure 1
+python analyze_mx_results.py --cache mx_scores.json --threshold 3
 ```
 
 ---
@@ -99,10 +123,8 @@ python run_mx_experiment.py --dry-run --replicas 2
 export OPENROUTER_API_KEY=<your_key>
 python run_mx_experiment.py --replicas 2 --temperature 0.7
 
-# 3. Judge evaluation (use a 4th model, not one of the 3 agent models)
-python evaluate_mx_privacy.py \
-  --results-dir results/mx \
-  --judge-model openai/gpt-4.1
+# 3. Judge evaluation (judge model is set in experiment_config.py)
+python evaluate_mx_privacy.py --results-dir results/
 
 # 4. Statistical analysis
 pip install scipy numpy matplotlib statsmodels
@@ -115,7 +137,7 @@ python analyze_mx_results.py \
 
 | File | Description |
 |------|-------------|
-| `results/mx/<model>/<scenario>_<cond>_rep<N>/messages_record.txt` | Agent trajectory per run |
+| `results/<model>/<scenario>_<cond>_rep<N>/messages_record.txt` | Agent trajectory per run |
 | `mx_scores.json` | Raw judge judgments (violation, severity, type, confidence, reasoning) |
 | `mx_scores.csv` | Severity matrix (rows=runs, cols=models) |
 | `mx_scores_detail.csv` | Full detail CSV for all fields |

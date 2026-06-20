@@ -22,6 +22,8 @@ import sys
 import zipfile
 from pathlib import Path
 
+from experiment_config import AGENT_MODELS, JUDGE_MODEL, DEFAULT_REPLICAS
+
 THIS_DIR   = Path(__file__).resolve().parent
 ORCH_ZIP   = THIS_DIR / "orchestrator_api.zip"
 SCENARIOS  = THIS_DIR / "scenarios"
@@ -143,8 +145,20 @@ def main() -> None:
         ))
     print()
 
-    # 5. Python dependencies
-    print("5. Python analysis dependencies")
+    # 5. Experiment config
+    print("5. experiment_config.py")
+    print(f"  Agent models ({len(AGENT_MODELS)}):")
+    for mid, slug in AGENT_MODELS:
+        print(f"    {slug:<20}  {mid}")
+    print(f"  Judge model  : {JUDGE_MODEL}")
+    print(f"  Replicas     : {DEFAULT_REPLICAS}")
+    total_runs = len(AGENT_MODELS) * DEFAULT_REPLICAS * 16
+    print(f"  Total runs   : {len(AGENT_MODELS)} models × {DEFAULT_REPLICAS} reps × 16 scenarios = {total_runs}")
+    results.append(check("experiment_config loaded", True))
+    print()
+
+    # 6. Python dependencies
+    print("6. Python analysis dependencies")
     for pkg in ["scipy", "numpy", "matplotlib", "statsmodels", "openai"]:
         try:
             __import__(pkg)

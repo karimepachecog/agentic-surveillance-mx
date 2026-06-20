@@ -45,23 +45,12 @@ RUN_PY   = THIS_DIR / "run.py"
 MX_SCENARIOS_DIR = THIS_DIR / "scenarios"
 RESULTS_DIR      = THIS_DIR / "results"
 
-OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
-
-# ── Agent models (3 models, mutually exclusive from judge model) ──────────────
-# Edit this list to select your 3 agent models.
-# All models must be available via the OpenRouter endpoint.
-AGENT_MODELS: list[tuple[str, str]] = [
-    # (openrouter_model_id,                slug_for_result_folder)
-    ("openai/gpt-4o-mini",                "gpt-4o-mini"),
-    ("anthropic/claude-3-haiku",          "claude-3-haiku"),
-    ("meta-llama/llama-3.1-8b-instruct",  "llama-3.1-8b"),
-]
-
-# Temperature > 0 ensures replica variance (per plan §10)
-AGENT_TEMPERATURE: float = 0.7
-
-# Number of replicas per (scenario × condition × model) cell
-DEFAULT_REPLICAS: int = 2
+from experiment_config import (
+    AGENT_MODELS,
+    AGENT_TEMPERATURE,
+    DEFAULT_REPLICAS,
+    OPENROUTER_BASE_URL,
+)
 
 # ─── Helpers ──────────────────────────────────────────────────────────────────
 

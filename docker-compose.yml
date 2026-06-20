@@ -1,0 +1,51 @@
+networks:
+  default:
+  internal_net:
+    driver: bridge
+    internal: true
+
+services:
+  executor:
+    container_name: mission_executor
+    build:
+      context: ./mission_executor
+      dockerfile: Dockerfile
+    volumes:
+      - ./orchestrator_api/prompt.json:/app/prompt.json:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+      # OpenAI client configuration forwarded from run.py via host env
+      - OPENAI_BASE_URL=${OPENAI_BASE_URL:-https://openrouter.ai/api/v1}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-das}
+      - OPENAI_MODEL=${OPENAI_MODEL:-openai/gpt-4o-mini}
+      # Temperature: 0.0 = deterministic, 0.7 = sampled (use 0.7 for replicas)
+      - OPENAI_TEMPERATURE=${OPENAI_TEMPERATURE:-0.7}
+    depends_on:
+      orchestrator:
+        condition: service_healthy
+    restart: "no"
+    networks:
+      - default
+      - internal_net
+
+  orchestrator:
+    container_name: orchestrator_api
+    build:
+      context: ./orchestrator_api
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:5000:5000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    healthcheck:
+      test: >-
+        python3 -c 'import urllib.request; urllib.request.urlopen("http://localhost:5000/get_auto_approve_status"); print(1)' || exit 1
+      interval: 2s
+      timeout: 1s
+      retries: 30
+      start_period: 5s
+    networks:
+      - default
+      - internal_net

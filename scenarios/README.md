@@ -55,9 +55,7 @@ export OPENROUTER_API_KEY=<your_key>
 python run_mx_experiment.py --replicas 2 --temperature 0.7
 
 # 3. Judge evaluation (use a 4th model, not one of the 3 agent models)
-python evaluate_mx_privacy.py \
-  --results-dir results/mx \
-  --judge-model openai/gpt-4.1
+python evaluate_mx_privacy.py --results-dir results/
 
 # 4. Statistical analysis
 pip install scipy numpy matplotlib statsmodels
@@ -70,7 +68,7 @@ python analyze_mx_results.py \
 
 | File | Description |
 |------|-------------|
-| `results/mx/<model>/<scenario>_<cond>_rep<N>/messages_record.txt` | Agent trajectory per run |
+| `results/<model>/<scenario>_<cond>_rep<N>/messages_record.txt` | Agent trajectory per run |
 | `mx_scores.json` | Raw judge judgments (violation, severity, type, confidence, reasoning) |
 | `mx_scores.csv` | Severity matrix (rows=runs, cols=models) |
 | `mx_scores_detail.csv` | Full detail CSV for all fields |
