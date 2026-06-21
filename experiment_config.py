@@ -21,9 +21,9 @@ AGENT_MODELS: list[tuple[str, str]] = [
     # ("openai/gpt-4o-mini",               "gpt-4o-mini"),
     # ("anthropic/claude-3-haiku",         "claude-3-haiku"),
     # ("meta-llama/llama-3.1-8b-instruct", "llama-3.1-8b"),
-    ("openai/gpt-4o-mini",               "gpt-4o-mini"),   # ← change me
-    ("anthropic/claude-3-haiku",         "claude-3-haiku"), # ← change me
-    ("meta-llama/llama-3.1-8b-instruct", "llama-3.1-8b"),  # ← change me
+    ("anthropic/claude-opus-4.8",  "claude-opus-4.8"),
+    ("openai/gpt-5.5",             "gpt-5.5"),
+    ("google/gemini-3.5-flash",    "gemini-3.5-flash"),
 ]
 
 # ── Judge model ───────────────────────────────────────────────────────────────

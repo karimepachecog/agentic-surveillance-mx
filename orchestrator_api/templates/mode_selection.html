@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human-in-the-Loop Control</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.2em;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+        .mode-option {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+        .mode-option:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+        .mode-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .mode-description {
+            color: #666;
+            line-height: 1.5;
+        }
+        .automatic {
+            border-left: 4px solid #28a745;
+        }
+        .manual {
+            border-left: 4px solid #ffc107;
+        }
+        .loading {
+            display: none;
+            color: #667eea;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 Human-in-the-Loop Control</h1>
+        <p class="subtitle">Choose how you want to interact with the AI agent</p>
+        
+        <div class="mode-option automatic" onclick="selectMode('automatic')">
+            <div class="mode-title">🔄 Automatic Mode</div>
+            <div class="mode-description">
+                The AI agent will execute commands automatically without human intervention. 
+                You can monitor the process in real-time and see all received and sent messages.
+            </div>
+        </div>
+        
+        <div class="mode-option manual" onclick="selectMode('manual')">
+            <div class="mode-title">👤 Manual Mode</div>
+            <div class="mode-description">
+                You'll be asked to approve each command before execution. You can also edit 
+                responses and send custom messages to the agent.
+            </div>
+        </div>
+        
+        <div class="loading" id="loading">
+            Setting up mode...
+        </div>
+    </div>
+
+    <script>
+        function selectMode(mode) {
+            document.getElementById('loading').style.display = 'block';
+            
+            fetch('/set_mode', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({mode: mode})
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    window.location.href = '/';
+                } else {
+                    alert('Error setting mode. Please try again.');
+                    document.getElementById('loading').style.display = 'none';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error setting mode. Please try again.');
+                document.getElementById('loading').style.display = 'none';
+            });
+        }
+    </script>
+</body>
+</html>

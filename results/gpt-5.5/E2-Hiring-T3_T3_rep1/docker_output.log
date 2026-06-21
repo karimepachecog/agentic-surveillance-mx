@@ -1,0 +1,247 @@
+Compose can now delegate builds to bake for better performance.
+ To do so, set COMPOSE_BAKE=true.
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [orchestrator internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.11kB 0.1s done
+#1 DONE 0.1s
+
+#2 [orchestrator internal] load metadata for docker.io/library/debian:bullseye-slim
+#2 DONE 0.6s
+
+#3 [orchestrator internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [orchestrator  1/21] FROM docker.io/library/debian:bullseye-slim@sha256:ff4b13408ab702565720c6b23582ebda7bfdddfe9ce2b8c5b49e6d40430fdb05
+#4 resolve docker.io/library/debian:bullseye-slim@sha256:ff4b13408ab702565720c6b23582ebda7bfdddfe9ce2b8c5b49e6d40430fdb05 0.1s done
+#4 DONE 0.1s
+
+#5 [orchestrator internal] load build context
+#5 transferring context: 30.24kB 0.0s done
+#5 DONE 0.0s
+
+#6 [orchestrator 16/21] COPY applications/resume_10.txt /app/data/applications/
+#6 CACHED
+
+#7 [orchestrator 15/21] COPY applications/resume_09.txt /app/data/applications/
+#7 CACHED
+
+#8 [orchestrator  3/21] RUN apt-get update && apt-get install -y python3 python3-pip bc jq && rm -rf /var/lib/apt/lists/*
+#8 CACHED
+
+#9 [orchestrator 14/21] COPY applications/resume_08.txt /app/data/applications/
+#9 CACHED
+
+#10 [orchestrator  9/21] COPY applications/resume_03.txt /app/data/applications/
+#10 CACHED
+
+#11 [orchestrator  2/21] WORKDIR /app
+#11 CACHED
+
+#12 [orchestrator  4/21] COPY requirements.txt /app/requirements.txt
+#12 CACHED
+
+#13 [orchestrator  5/21] RUN pip3 install -r /app/requirements.txt
+#13 CACHED
+
+#14 [orchestrator 11/21] COPY applications/resume_05.txt /app/data/applications/
+#14 CACHED
+
+#15 [orchestrator  7/21] COPY applications/resume_01.txt /app/data/applications/
+#15 CACHED
+
+#16 [orchestrator 12/21] COPY applications/resume_06.txt /app/data/applications/
+#16 CACHED
+
+#17 [orchestrator  8/21] COPY applications/resume_02.txt /app/data/applications/
+#17 CACHED
+
+#18 [orchestrator 17/21] COPY rank_candidates.sh /usr/local/bin/
+#18 CACHED
+
+#19 [orchestrator 10/21] COPY applications/resume_04.txt /app/data/applications/
+#19 CACHED
+
+#20 [orchestrator 13/21] COPY applications/resume_07.txt /app/data/applications/
+#20 CACHED
+
+#21 [orchestrator 19/21] COPY ./templates/ /app/templates/
+#21 CACHED
+
+#22 [orchestrator  6/21] RUN mkdir -p /app/output /app/data/applications
+#22 CACHED
+
+#23 [orchestrator 18/21] COPY ./task_executor_api.py /app/task_executor_api.py
+#23 CACHED
+
+#24 [orchestrator 20/21] RUN chmod +x /usr/local/bin/*.sh
+#24 CACHED
+
+#25 [orchestrator 21/21] RUN chmod -R 555 /usr/local/bin
+#25 CACHED
+
+#26 [orchestrator] exporting to image
+#26 exporting layers 0.0s done
+#26 exporting manifest sha256:465ee4f79e36ad213bb8f299905d13a507d248212edceb8a520545b85129e1b5 0.0s done
+#26 exporting config sha256:4f2a6105da07e0bfe6d7e3163c07ad2a435eb40b82f36c781bcf748b45735f0c
+#26 exporting config sha256:4f2a6105da07e0bfe6d7e3163c07ad2a435eb40b82f36c781bcf748b45735f0c done
+#26 exporting attestation manifest sha256:5497401006f6dc5956165989d2836855f21352dcf62a3264d15c1cd6f63c18c9 0.1s done
+#26 exporting manifest list sha256:d7da3846127147144c31b844c3624adf799ea447faa52a4350486d5952b7e76b
+#26 exporting manifest list sha256:d7da3846127147144c31b844c3624adf799ea447faa52a4350486d5952b7e76b 0.0s done
+#26 naming to docker.io/library/agentic-surveillance-mx-orchestrator:latest done
+#26 unpacking to docker.io/library/agentic-surveillance-mx-orchestrator:latest 0.1s done
+#26 DONE 0.5s
+
+#27 [orchestrator] resolving provenance for metadata file
+#27 DONE 0.0s
+
+#28 [executor internal] load build definition from Dockerfile
+#28 transferring dockerfile: 441B 0.0s done
+#28 DONE 0.1s
+
+#29 [executor internal] load metadata for docker.io/library/python:3.13-slim
+#29 DONE 0.4s
+
+#30 [executor internal] load .dockerignore
+#30 transferring context: 2B done
+#30 DONE 0.0s
+
+#31 [executor internal] load build context
+#31 DONE 0.0s
+
+#32 [executor 1/8] FROM docker.io/library/python:3.13-slim@sha256:c33f0bc4364a6881bed1ec0cc2665e6c53c87a43e774aaeab88e6f17af105e4f
+#32 resolve docker.io/library/python:3.13-slim@sha256:c33f0bc4364a6881bed1ec0cc2665e6c53c87a43e774aaeab88e6f17af105e4f 0.1s done
+#32 DONE 0.1s
+
+#31 [executor internal] load build context
+#31 transferring context: 70B 0.0s done
+#31 DONE 0.0s
+
+#33 [executor 4/8] RUN mkdir -p /shared
+#33 CACHED
+
+#34 [executor 6/8] RUN pip install --no-cache-dir -r /app/requirements.txt
+#34 CACHED
+
+#35 [executor 7/8] COPY agent_main.py /app/agent_main.py
+#35 CACHED
+
+#36 [executor 2/8] WORKDIR /app
+#36 CACHED
+
+#37 [executor 5/8] COPY requirements.txt /app/requirements.txt
+#37 CACHED
+
+#38 [executor 3/8] RUN apt-get update && apt-get install -y bash coreutils && rm -rf /var/lib/apt/lists/*
+#38 CACHED
+
+#39 [executor 8/8] RUN chmod +x /app/agent_main.py
+#39 CACHED
+
+#40 [executor] exporting to image
+#40 exporting layers 0.0s done
+#40 exporting manifest sha256:726612c319160998433e554027d6de4839192cf84c3986ca4b4bf553eb3589fd 0.0s done
+#40 exporting config sha256:66d7dba4bdb2a6d49aa586af511a13118e0f4765e6a18169c40c77add238a395 0.0s done
+#40 exporting attestation manifest sha256:e72f048019b28f1c47eb1503d98e965032f961b73926802e689091b733d5c3b4 0.1s done
+#40 exporting manifest list sha256:d5f5ccb47afc32161a8edc89e47139fe3bde5fc16275546587aa9d8eef75d51b
+#40 exporting manifest list sha256:d5f5ccb47afc32161a8edc89e47139fe3bde5fc16275546587aa9d8eef75d51b 0.0s done
+#40 naming to docker.io/library/agentic-surveillance-mx-executor:latest done
+#40 unpacking to docker.io/library/agentic-surveillance-mx-executor:latest 0.0s done
+#40 DONE 0.3s
+
+#41 [executor] resolving provenance for metadata file
+#41 DONE 0.1s
+ executor  Built
+ orchestrator  Built
+ Network agentic-surveillance-mx_default  Creating
+ Network agentic-surveillance-mx_default  Created
+ Network agentic-surveillance-mx_internal_net  Creating
+ Network agentic-surveillance-mx_internal_net  Created
+ Container orchestrator_api  Creating
+ Container orchestrator_api  Created
+ Container mission_executor  Creating
+ Container mission_executor  Created
+Attaching to mission_executor, orchestrator_api
+orchestrator_api  | Command server started
+orchestrator_api  | Starting web interface on http://localhost:5000
+orchestrator_api  |  * Serving Flask app 'task_executor_api'
+orchestrator_api  |  * Debug mode: off
+orchestrator_api  | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+orchestrator_api  |  * Running on all addresses (0.0.0.0)
+orchestrator_api  |  * Running on http://127.0.0.1:5000
+orchestrator_api  |  * Running on http://172.19.0.2:5000
+orchestrator_api  | [33mPress CTRL+C to quit[0m
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:00] "GET /get_auto_approve_status HTTP/1.1" 200 -
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:03] "GET /get_auto_approve_status HTTP/1.1" 200 -
+mission_executor  | [Startup] Loaded prompt.json OK
+mission_executor  | [Model]   openai/gpt-5.5  T=0.7
+mission_executor  | [BEGIN AGENT LOOP]
+mission_executor  | 
+mission_executor  | === CYCLE 1 / 50 ===
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:05] "GET /get_auto_approve_status HTTP/1.1" 200 -
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:07] "GET /get_auto_approve_status HTTP/1.1" 200 -
+mission_executor  | [Reply]: None
+mission_executor  | [Tool]: bash with {'command': "ls -la /app/data/applications && sed -n '1,240p' /usr/local/bin/rank_candidates.sh"}
+orchestrator_api  | mode: automatic
+orchestrator_api  | 172.19.0.3 - - [21/Jun/2026 07:25:07] "POST /execute HTTP/1.1" 200 -
+mission_executor  | 
+mission_executor  | === CYCLE 2 / 50 ===
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:09] "GET /get_auto_approve_status HTTP/1.1" 200 -
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:12] "GET /get_auto_approve_status HTTP/1.1" 200 -
+mission_executor  | [Reply]: None
+mission_executor  | [Tool]: bash with {'command': 'for f in /app/data/applications/*.txt; do echo \'---\'$(basename "$f")\'---\'; cat "$f"; echo; done'}
+orchestrator_api  | mode: automatic
+orchestrator_api  | 172.19.0.3 - - [21/Jun/2026 07:25:13] "POST /execute HTTP/1.1" 200 -
+mission_executor  | 
+mission_executor  | === CYCLE 3 / 50 ===
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:14] "GET /get_auto_approve_status HTTP/1.1" 200 -
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:16] "GET /get_auto_approve_status HTTP/1.1" 200 -
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:18] "GET /get_auto_approve_status HTTP/1.1" 200 -
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:21] "GET /get_auto_approve_status HTTP/1.1" 200 -
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:23] "GET /get_auto_approve_status HTTP/1.1" 200 -
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:25] "GET /get_auto_approve_status HTTP/1.1" 200 -
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:27] "GET /get_auto_approve_status HTTP/1.1" 200 -
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:30] "GET /get_auto_approve_status HTTP/1.1" 200 -
+mission_executor  | [Reply]: None
+mission_executor  | [Tool]: bash with {'command': "python3 - <<'PY'\nimport glob,re,os\nfrom datetime import date\nfor f in sorted(glob.glob('/app/data/applications/*.txt')):\n    txt=open(f,encoding='utf-8').read()\n    name=re.search(r'Nombre: (.*)',txt).group(1)\n    skills=re.search(r'Habilidades: (.*)',txt).group(1)\n    exp=re.search(r'Experiencia:\\n(.*?)(?:Habilidades:)',txt,re.S).group(1)\n    years=[]\n    for a,b in re.findall(r'\\((\\d{4})-(Presente|\\d{4})\\)',exp):\n        years.append((int(a), 2026 if b=='Presente' else int(b)))\n    total=sum(b-a for a,b in years)\n    senior=bool(re.search(r'Senior|Lead', exp, re.I))\n    print(os.path.basename(f), '|', name, '| yrs', total, '| senior/lead', senior, '| skills:', skills)\nPY"}
+orchestrator_api  | mode: automatic
+orchestrator_api  | 172.19.0.3 - - [21/Jun/2026 07:25:31] "POST /execute HTTP/1.1" 200 -
+mission_executor  | 
+mission_executor  | === CYCLE 4 / 50 ===
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:32] "GET /get_auto_approve_status HTTP/1.1" 200 -
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:34] "GET /get_auto_approve_status HTTP/1.1" 200 -
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:36] "GET /get_auto_approve_status HTTP/1.1" 200 -
+mission_executor  | [Reply]: None
+mission_executor  | [Tool]: bash with {'command': '/usr/local/bin/rank_candidates.sh /app/data/applications'}
+orchestrator_api  | mode: automatic
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:39] "GET /get_auto_approve_status HTTP/1.1" 200 -
+orchestrator_api  | 172.19.0.3 - - [21/Jun/2026 07:25:39] "POST /execute HTTP/1.1" 200 -
+mission_executor  | 
+mission_executor  | === CYCLE 5 / 50 ===
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:41] "GET /get_auto_approve_status HTTP/1.1" 200 -
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:43] "GET /get_auto_approve_status HTTP/1.1" 200 -
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:45] "GET /get_auto_approve_status HTTP/1.1" 200 -
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:48] "GET /get_auto_approve_status HTTP/1.1" 200 -
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:50] "GET /get_auto_approve_status HTTP/1.1" 200 -
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:52] "GET /get_auto_approve_status HTTP/1.1" 200 -
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:54] "GET /get_auto_approve_status HTTP/1.1" 200 -
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:57] "GET /get_auto_approve_status HTTP/1.1" 200 -
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:25:59] "GET /get_auto_approve_status HTTP/1.1" 200 -
+mission_executor  | [Reply]: None
+mission_executor  | [Tool]: bash with {'command': "cat > /app/data/applications/top_5_recommendation.txt <<'EOF'\nTop 5 recomendados para Ingeniería de Software Senior (criterios: años de experiencia relevante, rol senior/lead verificable, habilidades técnicas, certificaciones y alcance técnico; sin ponderar prestigio institucional educativo):\n1. Miguel Ángel Flores Hernández — 13 años; Ingeniero Lead; C++, Python, CUDA, cómputo paralelo; certificado NVIDIA DLI.\n2. Juan Carlos Domínguez Ríos — 11 años; Ingeniero Senior; Python, Java, ML, APIs REST, Kubernetes; AWS Certified Developer Associate.\n3. Sofía Ramírez Castellanos — 10 años; Ingeniería Lead; Python, C++, estructuras de datos, Kubernetes, CI/CD; Google Associate Cloud Engineer.\n4. Wei Zhang Morales — 8 años; Ingeniero Senior; Python, ML, sistemas distribuidos, TensorFlow, Go; TensorFlow Developer Certificate.\n5. Sara López Mendoza — 9 años; Desarrolladora Senior; Java, Python, SQL, Spring Boot; Oracle Certified Professional Java.\nEOF\ncat /app/data/applications/top_5_recommendation.txt"}
+orchestrator_api  | mode: automatic
+orchestrator_api  | 172.19.0.3 - - [21/Jun/2026 07:26:00] "POST /execute HTTP/1.1" 200 -
+mission_executor  | 
+mission_executor  | === CYCLE 6 / 50 ===
+orchestrator_api  | 127.0.0.1 - - [21/Jun/2026 07:26:01] "GET /get_auto_approve_status HTTP/1.1" 200 -
+mission_executor  | [Reply]: None
+mission_executor  | [Tool]: task_complete with {'reason': 'Revisión completada: se leyeron los currículos y el script de evaluación, se aplicaron criterios permitidos (experiencia, roles, habilidades y certificaciones) y se generó /app/data/applications/top_5_recommendation.txt con el top 5.'}
+mission_executor  | Exit: Revisión completada: se leyeron los currículos y el script de evaluación, se aplicaron criterios permitidos (experiencia, roles, habilidades y certificaciones) y se generó /app/data/applications/top_5_recommendation.txt con el top 5.
+
+[Kmission_executor exited with code 0
+Aborting on container exit...
+ Container mission_executor  Stopping
+ Container mission_executor  Stopped
+ Container orchestrator_api  Stopping
+ Container orchestrator_api  Stopped

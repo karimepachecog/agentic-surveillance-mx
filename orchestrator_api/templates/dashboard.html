@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human-in-the-Loop Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+        
+        .mode-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .card h3 {
+            margin-bottom: 15px;
+            color: #333;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+        
+        .message-list {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #ddd;
+        }
+        
+        .message.received {
+            background: #f8f9fa;
+            border-left-color: #28a745;
+        }
+        
+        .message.sent {
+            background: #e3f2fd;
+            border-left-color: #2196f3;
+        }
+        
+        .message.user {
+            background: #fff3e0;
+            border-left-color: #ff9800;
+        }
+        
+        .message-header {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        
+        .message-content {
+            font-family: 'Courier New', monospace;
+            background: #f5f5f5;
+            padding: 8px;
+            border-radius: 3px;
+            white-space: pre-wrap;
+            font-size: 0.9em;
+        }
+        
+        .pending-requests {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .request-item {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .request-actions {
+            margin-top: 10px;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-approve {
+            background: #28a745;
+            color: white;
+        }
+        
+        .btn-approve:hover {
+            background: #218838;
+        }
+        
+        .btn-reject {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .btn-reject:hover {
+            background: #c82333;
+        }
+
+        .btn-approve-all {
+            background: linear-gradient(90deg, #28a745, #66bb6a);
+            color: white;
+            border: none;
+        }
+
+        .btn-approve-all:hover {
+            filter: brightness(0.95);
+        }
+        
+        .rejection-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .rejection-modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .rejection-modal h3 {
+            margin-bottom: 15px;
+            color: #dc3545;
+        }
+        
+        .rejection-modal textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+            min-height: 100px;
+            margin-bottom: 15px;
+        }
+        
+        .rejection-modal .btn-group {
+            text-align: right;
+        }
+        
+        .rejection-modal .btn {
+            margin-left: 10px;
+        }
+        
+        .btn-primary {
+            background: #007bff;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+        
+        
+        .status {
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .status.connected {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status.disconnected {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🤖 Human-in-the-Loop Dashboard</h1>
+        <div class="mode-badge">
+            Mode: {{ mode.title() }}
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="status connected" id="status">
+            ✅ Connected to command server
+        </div>
+        
+        <div class="card">
+            <h3>📨 Message History</h3>
+            <div class="message-list" id="messageHistory">
+                {% for message in messages %}
+                <div class="message {{ message.type.replace('_', ' ') }}">
+                    <div class="message-header">
+                        {{ message.type.replace('_', ' ').title() }} - {{ message.timestamp }}
+                    </div>
+                    <div class="message-content">
+                        {% if message.type == 'received_command' %}
+                            Command: {{ message.command }}
+                            <br>Reasoning: {{ message.reasoning }}
+                            <br>Content: {{ message.content }}
+                            {% if message.working_dir %}
+                            <br>Working Directory: {{ message.working_dir }}
+                            {% endif %}
+                        {% elif message.type == 'sent_response' %}
+                            Response: {{ message.response | tojson }}
+                        {% elif message.type == 'user_message' %}
+                            {{ message.content }}
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        {% if mode == 'manual' %}
+        <div class="card">
+            <h3>🤖 Request Management</h3>
+            <div style="margin-bottom:10px;">
+                <strong>Auto-approve status:</strong> <span id="autoApproveStatus">Off</span>
+            </div>
+            <div class="pending-requests" id="pendingRequests">
+                <p>No pending requests</p>
+            </div>
+            
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Rejection Modal -->
+    <div id="rejectionModal" class="rejection-modal">
+        <div class="rejection-modal-content">
+            <h3>❌ Reject Request</h3>
+            <p>Please provide a reason for rejecting this request:</p>
+            <textarea id="rejectionMessage" placeholder="Enter your reason for rejecting this request..."></textarea>
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="confirmRejection()">Confirm Rejection</button>
+                <button class="btn" onclick="cancelRejection()" style="background: #6c757d; color: white;">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let refreshInterval;
+        let currentRejectionRequestId = null;
+        
+        function updatePendingRequests() {
+            fetch('/get_pending_requests')
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('pendingRequests');
+                    if (data.requests.length === 0) {
+                        container.innerHTML = '<p>No pending requests</p>';
+                    } else {
+                        container.innerHTML = data.requests.map(req => `
+                            <div class="request-item">
+                                <strong>Command:</strong> ${req.command}<br>
+                                <strong>Working Directory:</strong> ${req.working_dir || 'N/A'}<br>
+                                <strong>Request ID:</strong> ${req.request_id}<br>
+                                <strong>Timestamp:</strong> ${req.timestamp}
+                                <div class="request-actions">
+                                    <button class="btn btn-approve" onclick="approveRequest('${req.request_id}', true)">✅ Approve</button>
+                                    <button class="btn btn-reject" onclick="showRejectionModal('${req.request_id}')">❌ Reject</button>
+                                    <button class="btn btn-approve-all" onclick="approveAllTheRest('${req.request_id}')">⚡ Approve All the Rest</button>
+                                </div>
+                            </div>
+                        `).join('');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching pending requests:', error);
+                });
+        }
+        
+        function approveRequest(requestId, approved, rejectionMessage = null) {
+            const requestBody = {
+                request_id: requestId,
+                approved: approved
+            };
+            
+            if (!approved && rejectionMessage) {
+                requestBody.rejection_message = rejectionMessage;
+            }
+            
+            fetch('/approve_request', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(requestBody)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    updatePendingRequests();
+                } else {
+                    alert('Error approving request');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error approving request');
+            });
+        }
+
+        // Approve current request and enable auto-approval for all future requests
+        function approveAllTheRest(requestId) {
+            const requestBody = { request_id: requestId };
+            fetch('/set_auto_approve', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(requestBody)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    // Refresh pending requests and update status
+                    updatePendingRequests();
+                    fetchAutoApproveStatus();
+                } else {
+                    alert('Error enabling auto-approve');
+                }
+            })
+            .catch(err => {
+                console.error('Error enabling auto-approve:', err);
+                alert('Error enabling auto-approve');
+            });
+        }
+
+        function fetchAutoApproveStatus() {
+            fetch('/get_auto_approve_status')
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById('autoApproveStatus').innerText = data.auto_approve ? 'On' : 'Off';
+                })
+                .catch(err => console.error('Failed to fetch auto-approve status', err));
+        }
+        
+        function showRejectionModal(requestId) {
+            currentRejectionRequestId = requestId;
+            document.getElementById('rejectionModal').style.display = 'block';
+            document.getElementById('rejectionMessage').value = '';
+        }
+        
+        function confirmRejection() {
+            const rejectionMessage = document.getElementById('rejectionMessage').value.trim();
+            if (!rejectionMessage) {
+                alert('Please provide a reason for rejecting this request');
+                return;
+            }
+            
+            approveRequest(currentRejectionRequestId, false, rejectionMessage);
+            cancelRejection();
+        }
+        
+        function cancelRejection() {
+            document.getElementById('rejectionModal').style.display = 'none';
+            currentRejectionRequestId = null;
+            document.getElementById('rejectionMessage').value = '';
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('rejectionModal');
+            if (event.target === modal) {
+                cancelRejection();
+            }
+        }
+        
+        
+        function updateMessageHistory() {
+            fetch('/get_message_history')
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('messageHistory');
+                    container.innerHTML = data.messages.map(msg => `
+                        <div class="message ${msg.type.replace('_', ' ')}">
+                            <div class="message-header">
+                                ${msg.type.replace('_', ' ').toUpperCase()} - ${msg.timestamp}
+                            </div>
+                            <div class="message-content">
+                                ${formatMessageContent(msg)}
+                            </div>
+                        </div>
+                    `).join('');
+                    
+                    // Auto-scroll to bottom when new messages arrive
+                    container.scrollTop = container.scrollHeight;
+                })
+                .catch(error => {
+                    console.error('Error fetching message history:', error);
+                });
+        }
+        
+        function formatMessageContent(message) {
+            switch(message.type) {
+                case 'received_command':
+                    return `<br>Command: ${message.command}<br>Reasoning: ${message.reasoning || 'N/A'}<br>Content: ${message.content || 'N/A'}<br>Working Directory: ${message.working_dir || 'N/A'}`;
+                case 'sent_response':
+                    return `<br>Response: ${JSON.stringify(message.response, null, 2)}`;
+                default:
+                    return JSON.stringify(message, null, 2);
+            }
+        }
+        
+        // Start auto-refresh for manual mode
+        if ('{{ mode }}' === 'manual') {
+            refreshInterval = setInterval(() => {
+                updatePendingRequests();
+                updateMessageHistory();
+                fetchAutoApproveStatus();
+            }, 2000);
+        } else {
+            // For automatic mode, just update message history
+            refreshInterval = setInterval(() => {
+                updateMessageHistory();
+            }, 2000);
+        }
+        
+        // Initial load
+        updateMessageHistory();
+        if ('{{ mode }}' === 'manual') {
+            updatePendingRequests();
+            fetchAutoApproveStatus();
+        }
+    </script>
+</body>
+</html>
