@@ -22,6 +22,9 @@ import sys
 import zipfile
 from pathlib import Path
 
+from dotenv import load_dotenv
+load_dotenv()  # loads .env from repo root
+
 from experiment_config import AGENT_MODELS, JUDGE_MODEL, DEFAULT_REPLICAS
 
 THIS_DIR   = Path(__file__).resolve().parent

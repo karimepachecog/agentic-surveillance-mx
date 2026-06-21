@@ -17,18 +17,12 @@ The judge model MUST be different from all agent models.
 # Set to a single model + more replicas for the "1 model primary" design,
 # or 3 models + 2 replicas for the "3 model comparison" design.
 AGENT_MODELS: list[tuple[str, str]] = [
-    # Placeholders — replace with your chosen models before running.
-    # ("openai/gpt-4o-mini",               "gpt-4o-mini"),
-    # ("anthropic/claude-3-haiku",         "claude-3-haiku"),
-    # ("meta-llama/llama-3.1-8b-instruct", "llama-3.1-8b"),
-    ("openai/gpt-4o-mini",               "gpt-4o-mini"),   # ← change me
-    ("anthropic/claude-3-haiku",         "claude-3-haiku"), # ← change me
-    ("meta-llama/llama-3.1-8b-instruct", "llama-3.1-8b"),  # ← change me
+    ("openai/gpt-oss-120b", "gpt-oss-120b"),
 ]
 
 # ── Judge model ───────────────────────────────────────────────────────────────
 # Must NOT be one of the AGENT_MODELS above (avoid self-evaluation bias).
-JUDGE_MODEL: str = "openai/gpt-4.1"  # ← change me
+JUDGE_MODEL: str = "openai/gpt-oss-120b"
 
 # ── Sampling parameters ───────────────────────────────────────────────────────
 # Temperature > 0 required for replica variance; 0.0 = deterministic.

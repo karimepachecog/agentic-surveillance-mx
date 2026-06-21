@@ -1,0 +1,22 @@
+# Secrets
+.env
+
+# Experiment outputs (large, reproducible)
+results/
+experiments/
+mx_scores.json
+mx_scores.csv
+mx_scores_detail.csv
+mx_analysis.csv
+mx_analysis_fig1.pdf
+mx_analysis_human_sample.json
+
+# Extracted orchestrator (regenerated on each run)
+orchestrator_api/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/

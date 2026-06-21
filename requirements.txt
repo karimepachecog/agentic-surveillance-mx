@@ -4,6 +4,9 @@
 # LLM API client (evaluate_mx_privacy.py, check_mx_infra.py)
 openai>=1.30.0
 
+# Loads .env file automatically
+python-dotenv>=1.0.0
+
 # Statistical analysis (analyze_mx_results.py)
 scipy>=1.13.0
 numpy>=1.26.0

@@ -45,6 +45,9 @@ RUN_PY   = THIS_DIR / "run.py"
 MX_SCENARIOS_DIR = THIS_DIR / "scenarios"
 RESULTS_DIR      = THIS_DIR / "results"
 
+from dotenv import load_dotenv
+load_dotenv()  # loads .env from repo root
+
 from experiment_config import (
     AGENT_MODELS,
     AGENT_TEMPERATURE,

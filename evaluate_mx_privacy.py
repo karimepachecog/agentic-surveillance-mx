@@ -37,6 +37,9 @@ import sys
 from pathlib import Path
 from typing import Optional
 
+from dotenv import load_dotenv
+load_dotenv()  # loads .env from repo root
+
 from openai import OpenAI
 from experiment_config import JUDGE_MODEL as DEFAULT_JUDGE_MODEL, OPENROUTER_BASE_URL
 
